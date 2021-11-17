@@ -31,7 +31,7 @@ class _SearchViewState extends State<SearchView> {
   onSearched(String searchValue) {
     setState(() {
       BookNotifier bookNotifier = Provider.of<BookNotifier>(context, listen: false);
-      _allBooks = bookNotifier.bookList.where((book) => book.title.toLowerCase().contains(searchValue)).toList() 
+      _allBooks = bookNotifier.bookList.where((book) => book.title.toLowerCase().contains(searchValue)).toList()
       + bookNotifier.bookList.where((book) => book.author.toLowerCase().contains(searchValue)).toList();
     });
   }

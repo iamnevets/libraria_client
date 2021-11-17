@@ -15,9 +15,10 @@ class AuthSignInView extends StatefulWidget {
 }
 
 class _AuthSignInViewState extends State<AuthSignInView> {
+  final GlobalKey<FormState> _signInKey = GlobalKey<FormState>();
   TextEditingController usernameController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
+  // TextEditingController nameController = TextEditingController();
+  // TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool hidePassword = true;
 
@@ -109,6 +110,15 @@ class _AuthSignInViewState extends State<AuthSignInView> {
         ),
       ),
     );
+  }
+
+  submitForm() {
+    var validateForm = _signInKey.currentState!.validate();
+    if (validateForm) {
+      return;
+    }
+    _signInKey.currentState!.save();
+    return;
   }
 
   // final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

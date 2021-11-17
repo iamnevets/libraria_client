@@ -32,7 +32,7 @@ class ProfileView extends StatelessWidget {
 
   showUserName(context) {
     // User? currentUser = FirebaseAuth.instance.currentUser;
-    String? currentUserName = FirebaseAuth.instance.currentUser!.displayName;
+    String? currentUserName = FirebaseAuth.instance.currentUser!.email;
 
     if (currentUserName != null) {
       return Text(currentUserName + 'here');
